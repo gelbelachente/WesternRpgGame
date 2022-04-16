@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DesertRPGGame</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="mob_key">THIS_IS_A_KEY</string>
+</resources>

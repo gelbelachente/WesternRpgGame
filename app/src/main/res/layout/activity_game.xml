@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backlayer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dark"
+    tools:context=".UI.GameActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="1"
+        android:background="@drawable/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <de.gelbelachente.desertrpggame.game.UIComponents.Map
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/up_move"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/action"
+            app:layout_constraintEnd_toStartOf="@+id/right_move"
+            app:layout_constraintHeight_percent=".175"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/arrow_up" />
+
+        <ImageButton
+            android:id="@+id/down_move"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:rotation="180"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/right_move"
+            app:layout_constraintHeight_percent=".175"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/arrow_up" />
+
+        <ImageView
+            android:id="@+id/figure"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintStart_toStartOf="@+id/map"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/minotaur_01_idle_000" />
+
+        <ImageButton
+            android:id="@+id/left_move"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:rotation="270"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/down_move"
+            app:layout_constraintEnd_toStartOf="@+id/up_move"
+            app:layout_constraintHeight_percent=".175"
+            app:layout_constraintTop_toBottomOf="@+id/up_move"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/arrow_up" />
+
+        <ImageButton
+            android:id="@+id/right_move"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:rotation="90"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/down_move"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".175"
+            app:layout_constraintTop_toBottomOf="@+id/up_move"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/arrow_up" />
+
+        <ImageButton
+            android:id="@+id/action"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/down_move"
+            app:layout_constraintEnd_toStartOf="@+id/right_move"
+            app:layout_constraintHeight_percent=".175"
+            app:layout_constraintStart_toEndOf="@+id/left_move"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/fist" />
+
+        <ImageButton
+            android:id="@+id/bag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:tooltipText="Inventory"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/bag" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Inventory_Layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/inventory"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".6">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingTop="5dp"
+                android:text="Inventory"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toStartOf="@+id/close"
+                app:layout_constraintStart_toStartOf="@+id/inventory"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/close"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/inventory_stroke"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".15"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".15"
+                app:srcCompat="@drawable/ic_close" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/inventory"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".8"
+                app:layout_constraintWidth_percent=".7" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/craft"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent=".8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent=".25" />
+
+            <TextView
+                android:id="@+id/sub_craft_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Craft"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/craft"
+                app:layout_constraintEnd_toStartOf="@+id/inventory"
+                app:layout_constraintStart_toStartOf="@+id/craft" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/offHand"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/special_stroke"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintStart_toEndOf="@+id/bag"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/greenery_7" />
+
+        <TextView
+            android:id="@+id/x_coord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="X:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/y_coord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Y:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/x_coord" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/trade"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/inventory"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/map"
+            app:layout_constraintHeight_percent=".8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/map"
+            app:layout_constraintWidth_percent=".7">
+
+            <TextView
+                android:id="@+id/trade_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Trade"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/trade_submit"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trade"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/trade_received"
+                app:layout_constraintStart_toEndOf="@+id/trade_given"
+                app:layout_constraintTop_toBottomOf="@+id/trade_given" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trade_given"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="1dp"
+                android:background="@drawable/inventory"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent=".6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trade_received"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/inventory"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".6"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".4" />
+
+            <ImageButton
+                android:id="@+id/trade_close"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".15"
+                app:srcCompat="@drawable/ic_close" />
+
+            <ImageView
+                android:id="@+id/chevron_trade"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/trade_received"
+                app:layout_constraintEnd_toStartOf="@+id/trade_received"
+                app:layout_constraintHeight_percent=".2"
+                app:layout_constraintStart_toEndOf="@+id/trade_given"
+                app:layout_constraintTop_toTopOf="@+id/trade_received"
+                app:srcCompat="@drawable/ic_chevron_right" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/qa"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/inventory"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".6">
+
+            <TextView
+                android:id="@+id/qa_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Librarian"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/qa_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="32dp"
+                android:text="This Here should be a question?"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qa_title" />
+
+            <ImageButton
+                android:id="@+id/qa_right"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/qa_title"
+                app:layout_constraintHeight_percent=".3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/qa_question"
+                app:layout_constraintWidth_percent=".2"
+                app:srcCompat="@drawable/ic_check" />
+
+            <ImageButton
+                android:id="@+id/qa_wrong"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".3"
+                app:layout_constraintStart_toEndOf="@+id/qa_title"
+                app:layout_constraintTop_toBottomOf="@+id/qa_question"
+                app:layout_constraintWidth_percent=".2"
+                app:srcCompat="@drawable/ic_close" />
+
+            <ImageView
+                android:id="@+id/qa_reward"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/inventory_stroke"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/qa_wrong"
+                app:layout_constraintEnd_toStartOf="@+id/qa_wrong"
+                app:layout_constraintHeight_percent=".25"
+                app:layout_constraintStart_toEndOf="@+id/qa_right"
+                app:layout_constraintTop_toBottomOf="@+id/qa_question"
+                app:layout_constraintWidth_percent=".2"
+                app:srcCompat="@drawable/greenery_10" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/live_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="100%"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/heart_icon"
+            app:layout_constraintStart_toEndOf="@+id/heart_icon"
+            app:layout_constraintTop_toTopOf="@+id/heart_icon" />
+
+        <ImageView
+            android:id="@+id/heart_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintHeight_percent=".15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".05"
+            app:srcCompat="@drawable/heart" />
+
+        <ImageButton
+            android:id="@+id/enter"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/right_move"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintStart_toEndOf="@+id/up_move"
+            app:layout_constraintWidth_percent=".1"
+            app:srcCompat="@drawable/enter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

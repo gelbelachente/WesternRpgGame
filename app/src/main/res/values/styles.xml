@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="Widget.Theme.DesertRPGGame.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.DesertRPGGame.ButtonBar.Fullscreen" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorSurface">@color/light_inv</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
+</resources>
